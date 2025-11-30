@@ -61,135 +61,293 @@
 
   <!-- ALL CSS (only one <style>) -->
   <style>
-  /* ===== GLOBAL THEME ===== */
+  /*  ============================
+      GLOBAL PREMIUM THEME
+      ============================ */
+
   :root{
-    --bg1:#071428;
-    --bg2:#0b2940;
-    --card:#0f2f44;
-    --accent:#25d6f0;
-    --accent-2:#18b5c6;
-    --text:#EAF6FA;
-    --muted:#9db6c4;
-    --muted-2:#7b98a6;
-    --round:12px;
-    --shadow:0 10px 30px rgba(2,12,25,0.6);
+    --bg-deep:#050a14;
+    --bg-main:#071322;
+    --bg-panel:#0c1f31;
+    --accent:#31E1F7;       /* aqua inspection light */
+    --accent-soft:#00FFD5;  /* holiday detector green  */
+    --text-main:#F4FBFF;
+    --text-muted:#9FB4C7;
+    --text-soft:#7F94A7;
+    --round-lg:26px;
+    --round:14px;
+    --shadow-strong:0 26px 70px rgba(0,0,0,0.9);
+    --shadow-soft:0 18px 45px rgba(0,0,0,0.7);
     --maxw:1150px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
+
+  /* ---- BODY ---- */
   body{
     font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-    background: linear-gradient(180deg,var(--bg1),var(--bg2));
-    color:var(--text);
+    color:var(--text-main);
+    background:
+      linear-gradient(180deg,#050a14 0,#040a15 28%,#02040a 100%);
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     line-height:1.5;
   }
+
   a{color:inherit}
   img{display:block;max-width:100%}
-  .container{max-width:var(--maxw);margin:0 auto;padding:22px}
+  .container{max-width:var(--maxw);margin:0 auto;padding:22px 20px 40px;}
 
-  /* ===== NAV / HEADER ===== */
+  /*  ============================
+      HEADER / NAV
+      ============================ */
+
   header{
     position:sticky;
     top:0;
-    background:rgba(4,7,12,0.45);
-    backdrop-filter: blur(6px);
-    border-bottom:1px solid rgba(255,255,255,0.03);
+    background:rgba(4,10,20,0.92);
+    backdrop-filter: blur(18px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
     z-index:50;
   }
-  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px}
-  .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:700}
-  .brand i{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px}
-  nav ul{display:flex;gap:16px;list-style:none}
-  nav a{font-weight:600;text-decoration:none;opacity:0.95}
-  .navbar a, header a { color: var(--text); }
-  .navbar a:hover, header a:hover { color: var(--accent); }
+  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:700;font-size:0.98rem;}
+  .brand i{
+    background:radial-gradient(circle at 30% 0,rgba(49,225,247,0.4),rgba(3,10,25,0.4));
+    padding:8px;
+    border-radius:999px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.75);
+  }
+  nav ul{display:flex;gap:18px;list-style:none}
+  nav a{font-weight:600;text-decoration:none;opacity:0.96;font-size:0.92rem;}
+  nav a:hover{color:var(--accent);}
 
-  /* ===== BUTTONS ===== */
+  /*  ============================
+      BUTTONS
+      ============================ */
+
   .btn, .btn-primary{
-    background: linear-gradient(180deg, var(--accent), var(--accent-2));
-    color:#04252b;
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:var(--round);
-    padding:10px 16px;
-    box-shadow:0 6px 18px rgba(5,30,40,0.35);
+    background:linear-gradient(135deg,var(--accent),#17b3d0);
+    color:#021014;
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px;
+    padding:10px 18px;
+    box-shadow:0 12px 30px rgba(5,30,40,0.7);
     text-decoration:none;
     font-weight:700;
     display:inline-flex;
     align-items:center;
     gap:6px;
     cursor:pointer;
-    transition:transform 0.2s, box-shadow 0.2s;
-  }
-  .btn-outline{
-    background:transparent;
-    color:var(--accent);
-    border:1px solid rgba(37,214,240,0.18);
+    transition:transform 0.15s ease-out, box-shadow 0.15s ease-out, filter 0.15s ease-out;
+    font-size:0.92rem;
+    white-space:nowrap;
   }
   .btn:hover, .btn-primary:hover{
     transform:translateY(-2px);
-    box-shadow:0 14px 30px rgba(23,142,154,0.12);
+    box-shadow:0 20px 45px rgba(0,0,0,0.95);
+    filter:brightness(1.05);
   }
 
   .send{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    padding:10px 12px;
-    border-radius:10px;
+    padding:10px 14px;
+    border-radius:999px;
     border:1px solid var(--accent);
     color:var(--accent);
-    background:transparent;
+    background:rgba(0,0,0,0.25);
     font-weight:700;
+    font-size:0.9rem;
+  }
+  .send:hover{
+    background:rgba(6,45,66,0.9);
+    color:#e9feff;
   }
 
-  /* ===== CARDS ===== */
+  /*  ============================
+      GENERIC CARDS
+      ============================ */
+
   .card, .contact-info, .contact-form, .resume-box, .cert-item{
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.03);
-    color:var(--text);
-    border-radius:var(--round);
-    box-shadow:var(--shadow);
-    padding:12px;
-    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    background:radial-gradient(circle at 0 0,rgba(49,225,247,0.16),rgba(4,15,30,0.96));
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--text-main);
+    border-radius:16px;
+    box-shadow:var(--shadow-soft);
+    padding:14px;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
   }
   .card:hover, .contact-info:hover, .contact-form:hover, .resume-box:hover, .cert-item:hover{
     transform:translateY(-4px);
-    border-color:rgba(37,214,240,0.45);
-    box-shadow:0 18px 40px rgba(12,117,152,0.45);
+    border-color:rgba(0,255,213,0.7);
+    box-shadow:var(--shadow-strong);
+    background:radial-gradient(circle at 0 0,rgba(0,255,213,0.2),rgba(4,15,30,0.98));
   }
 
-  /* ===== HEADINGS + LINKS ===== */
-  h1,h2,h3{color:var(--text);}
-  .about-title{color:var(--accent);}
+  h1,h2,h3{color:var(--text-main);}
+  p{color:var(--text-muted);}
   a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;color:var(--accent-2);}
+  a:hover{text-decoration:underline;color:var(--accent);}
 
-  /* ===== IMAGE FRAMES ===== */
-  .portrait img,.profile-photo{
-    border-radius:12px;
-    border:3px solid rgba(24,181,198,0.12);
-    background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(0,0,0,0.06));
+  /*  ============================
+      HERO SECTION (HOME)
+      ============================ */
+
+  .hero{
+    display:grid;
+    grid-template-columns:minmax(0,1.7fr) minmax(0,1.1fr);
+    gap:40px;
+    align-items:center;
+    padding:60px 40px 46px;
+    margin-top:26px;
+    border-radius:var(--round-lg);
+    position:relative;
+    overflow:hidden;
+
+    /* HERO BACKGROUND:
+       1) inspection blasting room photo
+       2) dark gradient overlay for readability
+       Add your photo at: Images/backgrounds/hero-blasting-room.jpg
+    */
+    background-image:
+      linear-gradient(120deg,rgba(5,10,20,0.96),rgba(6,24,43,0.97),rgba(4,12,24,0.98)),
+      url('Images/backgrounds/hero-blasting-room.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+    box-shadow:var(--shadow-strong);
   }
 
-  /* ===== HERO ===== */
-  .hero{display:flex;gap:28px;align-items:center;padding:48px 0}
-  .hero-left{flex:1}
-  .hero h1{font-size:1.9rem;line-height:1.05;margin-bottom:12px}
-  .hero p{color:var(--muted);max-width:720px}
-  .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-  .portrait{width:220px;border-radius:16px;overflow:hidden;border:6px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);flex-shrink:0}
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:-40px;
+    background:
+      radial-gradient(circle at 10% 0,rgba(49,225,247,0.25),transparent 60%),
+      radial-gradient(circle at 85% 100%,rgba(0,255,213,0.18),transparent 65%);
+    mix-blend-mode:screen;
+    opacity:0.85;
+    pointer-events:none;
+  }
 
-  /* ===== SECTIONS ===== */
-  section{padding:36px 0; position:relative; overflow:hidden;}
+  .hero-left{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    position:relative;
+    z-index:2;
+  }
+  .hero-kicker{
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+  }
+  .hero-name{
+    font-size:2.5rem;
+    font-weight:800;
+    line-height:1.03;
+  }
+  .hero-name span{
+    color:var(--accent-soft);
+    text-shadow:0 0 18px rgba(0,255,214,0.35);
+  }
+  .hero-role{
+    font-size:1.02rem;
+    font-weight:600;
+    color:var(--text-muted);
+  }
+  .hero p.hero-text{
+    color:var(--text-muted);
+    max-width:720px;
+    font-size:0.96rem;
+  }
+  .hero-ctas{
+    margin-top:16px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .hero-right{
+    justify-self:center;
+    position:relative;
+    z-index:2;
+  }
+  .hero-right::before{
+    content:"";
+    position:absolute;
+    inset:-26px;
+    border-radius:30px;
+    background:
+      radial-gradient(circle at 0 0,rgba(49,225,247,0.4),transparent 55%),
+      radial-gradient(circle at 100% 100%,rgba(0,255,213,0.4),transparent 55%);
+    opacity:0.85;
+    filter:blur(3px);
+    z-index:-1;
+  }
+
+  .portrait{
+    width:270px;
+    border-radius:22px;
+    overflow:hidden;
+    border:5px solid rgba(255,255,255,0.1);
+    box-shadow:var(--shadow-strong);
+    flex-shrink:0;
+    background:radial-gradient(circle at 0 0,rgba(255,255,255,0.08),rgba(0,0,0,0.8));
+  }
+  .portrait img{
+    border-radius:18px;
+  }
+
+  .hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+    margin-top:22px;
+    max-width:520px;
+  }
+  .hero-stat{
+    background:rgba(5,22,40,0.95);
+    border-radius:14px;
+    padding:10px 12px;
+    border:1px solid rgba(0,255,213,0.5);
+    box-shadow:0 18px 40px rgba(0,0,0,0.9);
+  }
+  .hero-stat strong{
+    display:block;
+    font-size:1.18rem;
+    font-weight:800;
+  }
+  .hero-stat span{
+    font-size:0.8rem;
+    color:var(--text-soft);
+  }
+
+  /*  ============================
+      SECTIONS: COMMON
+      ============================ */
+
+  section{
+    padding:40px 26px;
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    margin-top:32px;
+    box-shadow:var(--shadow-soft);
+  }
+
   .section-title{
-    color:var(--accent);
+    color:var(--accent-soft);
     font-weight:800;
     text-align:center;
     font-size:1.4rem;
-    margin-bottom:18px;
+    margin-bottom:20px;
     position:relative;
     letter-spacing:0.04em;
     text-transform:uppercase;
@@ -198,117 +356,250 @@
     content:"";
     width:90px;
     height:3px;
-    background:radial-gradient(circle,var(--accent),transparent);
+    background:radial-gradient(circle,var(--accent-soft),transparent);
     position:absolute;
     left:50%;
     bottom:-8px;
     transform:translateX(-50%);
   }
-  /* background glow shapes */
-  section::before{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:40% 60% 55% 45%;
-    background:radial-gradient(circle,rgba(37,214,240,0.12),transparent 70%);
-    top:-60px;
-    right:-80px;
-    pointer-events:none;
-  }
-  section::after{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(24,181,198,0.14),transparent 70%);
-    bottom:-80px;
-    left:-60px;
-    pointer-events:none;
+
+  /*  ============================
+      SECTION BACKGROUNDS + PHOTOS
+      (use Images/backgrounds/*.jpg)
+      ============================ */
+
+  /* ABOUT – DFT meter / inspection close shot */
+  #about{
+    background-image:
+      linear-gradient(135deg,rgba(7,23,40,0.96),rgba(9,36,59,0.97),rgba(5,15,30,0.98)),
+      url('Images/backgrounds/about-dft-meter.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
   }
 
-  /* About */
-  .about-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
-  .about-text p{color:var(--muted);margin:8px 0}
+  /* EXPERIENCE – steel structure, pipe rack, etc. */
+  #experience{
+    background-image:
+      linear-gradient(135deg,rgba(5,18,33,0.97),rgba(8,32,52,0.98),rgba(4,11,22,0.98)),
+      url('Images/backgrounds/experience-steel-structure.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /* CERTIFICATIONS – clean lab/inspection table */
+  #certifications{
+    background-image:
+      linear-gradient(135deg,rgba(6,20,34,0.97),rgba(8,37,56,0.98),rgba(3,11,22,0.98)),
+      url('Images/backgrounds/cert-lab-table.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /* PROJECTS – site / plant wide angle */
+  #projects{
+    background-image:
+      linear-gradient(135deg,rgba(5,20,35,0.97),rgba(10,40,63,0.98),rgba(4,13,26,0.98)),
+      url('Images/backgrounds/projects-plant-wide.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /* GALLERY – coating booth / spraying */
+  #gallery{
+    background-image:
+      linear-gradient(135deg,rgba(4,18,32,0.97),rgba(7,33,54,0.98),rgba(3,10,21,0.98)),
+      url('Images/backgrounds/gallery-coating-booth.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /* RESUME – steel drawing / documents */
+  #resume{
+    background-image:
+      linear-gradient(135deg,rgba(5,20,36,0.97),rgba(9,36,58,0.98),rgba(4,12,24,0.98)),
+      url('Images/backgrounds/resume-docs.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /* CONTACT – subtle plant night shot */
+  #contact{
+    background-image:
+      linear-gradient(135deg,rgba(4,14,26,0.98),rgba(7,30,49,0.98),rgba(4,10,20,0.99)),
+      url('Images/backgrounds/contact-plant-night.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-blend-mode:overlay;
+  }
+
+  /*  ============================
+      ABOUT CONTENT
+      ============================ */
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:20px;
+    align-items:flex-start;
+  }
+  .about-text p{margin:8px 0}
   .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-  .skill{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);min-width:160px;text-align:center}
+  .skill{
+    background:rgba(4,18,35,0.96);
+    padding:12px;
+    border-radius:10px;
+    border:1px solid rgba(0,255,213,0.35);
+    min-width:160px;
+    text-align:center;
+    box-shadow:0 14px 32px rgba(0,0,0,0.85);
+  }
 
-  /* Experience */
+  /*  ============================
+      EXPERIENCE
+      ============================ */
+
   .timeline{display:flex;flex-direction:column;gap:14px}
-  .job{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-  .job .company{color:var(--muted);font-weight:600;margin-bottom:8px}
+  .job{
+    background:rgba(4,18,35,0.96);
+    padding:16px 14px;
+    border-radius:12px;
+    border:1px solid rgba(0,255,213,0.35);
+    box-shadow:0 18px 40px rgba(0,0,0,0.9);
+  }
+  .job .company{color:var(--text-muted);font-weight:600;margin-bottom:8px}
 
-  /* Projects cards */
+  /*  ============================
+      PROJECT CARDS
+      ============================ */
+
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-  .card-img{height:140px;overflow:hidden}
+  .card-img{height:140px;overflow:hidden;border-radius:12px 12px 10px 10px;}
   .card-img img{height:100%;width:100%;object-fit:cover;transition:0.3s;}
   .card:hover .card-img img{transform:scale(1.08);}
   .card-body{padding:12px}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .tag{background:rgba(22,225,194,0.06);padding:6px 8px;border-radius:999px;color:var(--accent);font-weight:700;font-size:0.85rem}
+  .tag{
+    background:rgba(22,225,194,0.08);
+    padding:6px 8px;
+    border-radius:999px;
+    color:var(--accent-soft);
+    font-weight:700;
+    font-size:0.85rem;
+    border:1px solid rgba(0,255,213,0.4);
+  }
 
-  /* Certifications */
+  /*  ============================
+      CERTIFICATIONS
+      ============================ */
+
   .cert-list{display:flex;flex-direction:column;gap:10px}
 
-  /* Gallery */
-  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-  .gallery-item{background:var(--card);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-  .gallery-item img{height:120px;object-fit:cover;width:100%;transition:0.3s;}
-  .gallery-item figcaption{padding:8px;color:var(--muted);font-size:0.86rem}
-  .gallery-item:hover img{transform:scale(1.05);opacity:0.92;}
-  .gallery-item:hover figcaption{color:var(--accent);}
+  /*  ============================
+      GALLERY
+      ============================ */
 
-  /* Resume & Contact */
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .gallery-item{
+    background:rgba(4,22,42,0.92);
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid rgba(0,255,213,0.4);
+    box-shadow:0 16px 38px rgba(0,0,0,0.9);
+  }
+  .gallery-item img{height:120px;object-fit:cover;width:100%;transition:0.3s;}
+  .gallery-item figcaption{padding:8px;color:var(--text-muted);font-size:0.86rem}
+  .gallery-item:hover img{transform:scale(1.05);opacity:0.92;}
+  .gallery-item:hover figcaption{color:var(--accent-soft);}
+
+  /*  ============================
+      RESUME & CONTACT
+      ============================ */
+
   .resume-box{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .contact-wrap{display:grid;grid-template-columns:360px 1fr;gap:14px}
   label{display:block;font-weight:700;margin-bottom:6px}
   input,textarea{
     width:100%;
     padding:10px;
-    border-radius:8px;
-    border:1px solid rgba(255,255,255,0.03);
-    background:rgba(255,255,255,0.02);
-    color:var(--text);
+    border-radius:10px;
+    border:1px solid rgba(0,255,213,0.45);
+    background:rgba(0,10,20,0.8);
+    color:var(--text-main);
   }
   textarea{min-height:120px}
 
-  /* Footer */
+  /*  ============================
+      FOOTER
+      ============================ */
+
   footer{
-    padding:20px 0;
-    color:var(--muted);
+    padding:22px 0 26px;
+    color:var(--text-muted);
     text-align:center;
     font-size:0.9rem;
-    background: linear-gradient(180deg, var(--bg2), #041624);
+    background:radial-gradient(circle at 0 0,rgba(49,225,247,0.18),transparent 55%),#030713;
+    border-top:1px solid rgba(255,255,255,0.06);
   }
 
-  /* Lightbox */
-  .lb{position:fixed;inset:0;background:rgba(3,9,16,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .18s}
+  /*  ============================
+      LIGHTBOX
+      ============================ */
+
+  .lb{position:fixed;inset:0;background:rgba(3,9,16,0.95);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .18s}
   .lb.open{opacity:1;pointer-events:auto}
-  .lb img{max-width:92%;max-height:82%;border-radius:8px;box-shadow:var(--shadow)}
-  .lb .close{position:absolute;top:18px;right:18px;color:var(--text);font-size:28px;cursor:pointer}
-  .lb .navbtn{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:var(--text);cursor:pointer;padding:10px}
+  .lb img{max-width:92%;max-height:82%;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,0.95)}
+  .lb .close{position:absolute;top:18px;right:18px;color:var(--text-main);font-size:28px;cursor:pointer}
+  .lb .navbtn{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:var(--text-main);cursor:pointer;padding:10px}
   .lb .prev{left:18px}
   .lb .next{right:18px}
 
-  /* Responsive */
+  /*  ============================
+      RESPONSIVE
+      ============================ */
+
   @media(max-width:980px){
     .about-grid{grid-template-columns:1fr}
-    .hero{flex-direction:column;align-items:flex-start}
+    .hero{
+      grid-template-columns:1fr;
+      padding:38px 22px 30px;
+    }
+    .hero-right{
+      order:-1;
+      justify-self:flex-start;
+    }
     .contact-wrap{grid-template-columns:1fr}
     nav ul{display:none}
-    .portrait{width:180px}
+    .portrait{width:220px}
+    section{padding:32px 18px;margin-top:26px;}
   }
   @media (max-width:900px){
     .about-grid, .contact-wrap { grid-template-columns: 1fr; }
-    .portrait img { width:160px; }
+    .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:600px){
+    .hero-name{font-size:2.1rem;}
+    .hero{margin-top:18px;}
+    .hero-stats{grid-template-columns:1fr 1fr;}
   }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="nav container">
+    <div class="nav">
       <div class="brand"><i class="fa-solid fa-shield-halved"></i> Md Jakir Hossain</div>
       <nav>
         <ul>
@@ -329,22 +620,45 @@
     <!-- HERO -->
     <section id="home" class="hero">
       <div class="hero-left">
-        <h1>Professional QA/QC Painting Inspector & NDT Level-2 Engineer</h1>
-        <p>BGAS-CSWIP Grade-II & NDT Level-2 — Coating inspection, blasting supervision, DFT & holiday testing, and NDT across oil & gas, rail and airport projects. Specialist in inspection documentation (ITP, NCR), calibration and on-site coordination.</p>
+        <p class="hero-kicker">COATING & NDT SPECIALIST</p>
+        <h1 class="hero-name">Hi, I’m <span>Md Jakir Hossain</span></h1>
+        <p class="hero-role">BGAS-CSWIP Grade-II Painting Inspector &amp; NDT Level-2 Engineer — Oil &amp; Gas, Bridge, Airport &amp; Metro Projects</p>
+        <p class="hero-text">
+          Coating inspection, blasting supervision, DFT &amp; holiday testing, and NDT across oil &amp; gas, rail and airport projects.
+          Specialist in inspection documentation (ITP, NCR), calibration and on-site coordination.
+        </p>
+
         <div class="hero-ctas">
           <a href="#projects" class="btn">View Projects</a>
           <a href="#contact" class="send">Get In Touch <i class="fa-solid fa-paper-plane" style="color:var(--accent)"></i></a>
           <a href="Assets/resume/Md_Jakir_Hossain_CV.pdf" class="btn btn-primary" download>Download CV</a>
         </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>4+ yrs</strong>
+            <span>QA/QC Painting &amp; Coating</span>
+          </div>
+          <div class="hero-stat">
+            <strong>10+ </strong>
+            <span>Major industrial projects</span>
+          </div>
+          <div class="hero-stat">
+            <strong>5</strong>
+            <span>NDT Level-2 methods</span>
+          </div>
+        </div>
       </div>
 
-      <div class="portrait" aria-hidden="true">
-        <img src="Images/myphoto.jpg" alt="Portrait of Md Jakir Hossain QA QC Certified Painting Inspector Bangladesh">
+      <div class="hero-right" aria-hidden="true">
+        <div class="portrait">
+          <img src="Images/myphoto.jpg" alt="Portrait of Md Jakir Hossain QA QC Certified Painting Inspector Bangladesh">
+        </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
+    <section id="about">
       <div class="section-title">About Me</div>
       <div class="about-grid">
         <div class="about-text">
@@ -354,24 +668,24 @@
           <p style="margin-top:8px">I prepare ITPs, maintain inspection records, handle NCRs, verify calibrations and coordinate with contractors and clients to ensure compliance with project specifications and industry standards (ISO/SSPC/NACE).</p>
 
           <div class="skills" aria-hidden="false">
-            <div class="skill"><strong>Coating Inspection</strong><div style="color:var(--muted)">DFT / Holiday / Blasting</div></div>
-            <div class="skill"><strong>NDT Testing</strong><div style="color:var(--muted)">UT / PT / MT / RT (Level-2)</div></div>
-            <div class="skill"><strong>QC Documentation</strong><div style="color:var(--muted)">ITP, NCR, Reports</div></div>
-            <div class="skill"><strong>Mechanical Knowledge</strong><div style="color:var(--muted)">Fabrication & Structural</div></div>
+            <div class="skill"><strong>Coating Inspection</strong><div style="color:var(--text-muted)">DFT / Holiday / Blasting</div></div>
+            <div class="skill"><strong>NDT Testing</strong><div style="color:var(--text-muted)">UT / PT / MT / RT (Level-2)</div></div>
+            <div class="skill"><strong>QC Documentation</strong><div style="color:var(--text-muted)">ITP, NCR, Reports</div></div>
+            <div class="skill"><strong>Mechanical Knowledge</strong><div style="color:var(--text-muted)">Fabrication & Structural</div></div>
           </div>
         </div>
 
         <div>
           <div class="card" style="padding:12px;margin-bottom:12px">
             <h4 style="margin:0">Contact</h4>
-            <div style="color:var(--muted);margin-top:8px">jakirhossan121bd@gmail.com</div>
-            <div style="color:var(--muted);margin-top:6px">+8801774141368</div>
+            <div style="color:var(--text-muted);margin-top:8px">jakirhossan121bd@gmail.com</div>
+            <div style="color:var(--text-muted);margin-top:6px">+8801774141368</div>
             <div style="margin-top:8px"><a href="https://www.linkedin.com/in/jakir-hossain-coating-inspector" target="_blank" style="color:var(--accent)">LinkedIn profile</a></div>
           </div>
 
           <div class="card" style="padding:12px">
             <h4 style="margin:0">Certifications</h4>
-            <div style="color:var(--muted);margin-top:8px">BGAS-CSWIP Grade-II (Painting Inspector) & NDT Level-2 (UT/PT/MT/RT)</div>
+            <div style="color:var(--text-muted);margin-top:8px">BGAS-CSWIP Grade-II (Painting Inspector) & NDT Level-2 (UT/PT/MT/RT)</div>
             <div style="margin-top:10px"><a href="#certifications" style="color:var(--accent)">View details</a></div>
           </div>
         </div>
@@ -379,24 +693,24 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section">
+    <section id="experience">
       <div class="section-title">Professional Experience</div>
       <div class="timeline">
         <div class="job">
           <h3>QA/QC Coating & Painting Inspector</h3>
           <div class="company">Technic Construction Company Ltd — Bibiyana Gas Plant (Chevron Bangladesh)</div>
           <div style="margin-top:6px"><strong>August 2024 - Present</strong></div>
-          <p style="color:var(--muted);margin-top:8px">Coating inspection for piping, storage tanks, pressure vessels and structures. Verified surface prep, DFT, holiday testing and prepared inspection reports and NCRs per project ITPs and ISO requirements.</p>
+          <p style="color:var(--text-muted);margin-top:8px">Coating inspection for piping, storage tanks, pressure vessels and structures. Verified surface prep, DFT, holiday testing and prepared inspection reports and NCRs per project ITPs and ISO requirements.</p>
         </div>
 
         <div class="job">
           <h3>QC Engineer (Painting) / Shop In-charge</h3>
           <div class="company">McDonald Steel Building Products Ltd — Shop & Project Works</div>
           <div style="margin-top:6px"><strong>Jun 2021 – Aug 2024</strong></div>
-          <p style="color:var(--muted);margin-top:8px">Shop-based QC Engineer (Painting) and shop in-charge covering blasting, coating application supervision, DFT & holiday testing, adhesion trials, calibration verification and inspection documentation.</p>
+          <p style="color:var(--text-muted);margin-top:8px">Shop-based QC Engineer (Painting) and shop in-charge covering blasting, coating application supervision, DFT & holiday testing, adhesion trials, calibration verification and inspection documentation.</p>
 
           <p style="font-weight:700;margin-top:10px">Major project work while at McDonald Steel (performed under company contract):</p>
-          <ul style="color:var(--muted);margin-top:8px">
+          <ul style="color:var(--text-muted);margin-top:8px">
             <li><strong>Bangabandhu Railway Bridge</strong> — QA/QC (Shop In-charge) for steel girders; blasting, coating application and inspection per ISO 12944-5.</li>
             <li><strong>Hazrat Shahjalal International Airport — 3rd Terminal</strong> — Painting inspection for structural steel and spot NDT checks.</li>
             <li><strong>Dhaka Metro Rail — MRT Line-6</strong> — Painting inspection for heavy steel structures, weld area checks and coating verification.</li>
@@ -406,26 +720,26 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications" class="section">
+    <section id="certifications">
       <div class="section-title">Professional Certifications</div>
       <div class="cert-list">
-        <div class="cert-item"><strong>BGAS-CSWIP — Painting Inspector Grade-II</strong><div style="color:var(--muted);margin-top:6px">TWI certified — Coating inspection & surface preparation.</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (UT)</strong><div style="color:var(--muted);margin-top:6px">Ultrasonic Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (PT)</strong><div style="color:var(--muted);margin-top:6px">Penetrant Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (MT)</strong><div style="color:var(--muted);margin-top:6px">Magnetic Particle Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (RT)</strong><div style="color:var(--muted);margin-top:6px">Radiographic Testing — Level-2</div></div>
+        <div class="cert-item"><strong>BGAS-CSWIP — Painting Inspector Grade-II</strong><div style="color:var(--text-muted);margin-top:6px">TWI certified — Coating inspection & surface preparation.</div></div>
+        <div class="cert-item"><strong>NDT Level-2 (UT)</strong><div style="color:var(--text-muted);margin-top:6px">Ultrasonic Testing — Level-2</div></div>
+        <div class="cert-item"><strong>NDT Level-2 (PT)</strong><div style="color:var(--text-muted);margin-top:6px">Penetrant Testing — Level-2</div></div>
+        <div class="cert-item"><strong>NDT Level-2 (MT)</strong><div style="color:var(--text-muted);margin-top:6px">Magnetic Particle Testing — Level-2</div></div>
+        <div class="cert-item"><strong>NDT Level-2 (RT)</strong><div style="color:var(--text-muted);margin-top:6px">Radiographic Testing — Level-2</div></div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section">
+    <section id="projects">
       <div class="section-title">Major Projects</div>
       <div class="cards">
         <article class="card">
           <div class="card-img"><img src="Images/projects/bibiyana.jpg" alt="Bibiyana Gas Plant"></div>
           <div class="card-body">
             <h4>Chevron Bangladesh — Bibiyana Gas Plant</h4>
-            <p style="color:var(--muted);margin-top:6px">Comprehensive QA/QC inspection for gas plant maintenance, coating systems and NDT testing.</p>
+            <p style="color:var(--text-muted);margin-top:6px">Comprehensive QA/QC inspection for gas plant maintenance, coating systems and NDT testing.</p>
             <div class="tags"><span class="tag">API / ASME</span><span class="tag">Coating Systems</span></div>
           </div>
         </article>
@@ -434,7 +748,7 @@
           <div class="card-img"><img src="Images/projects/bangabandhu-bridge.jpg" alt="Bangabandhu Railway Bridge"></div>
           <div class="card-body">
             <h4>Bangabandhu Railway Bridge — Shop Works</h4>
-            <p style="color:var(--muted);margin-top:6px">Shop in-charge for steel girder inspection and coating works per ISO 12944-5.</p>
+            <p style="color:var(--text-muted);margin-top:6px">Shop in-charge for steel girder inspection and coating works per ISO 12944-5.</p>
             <div class="tags"><span class="tag">Shop Inspection</span><span class="tag">ISO 12944</span></div>
           </div>
         </article>
@@ -443,7 +757,7 @@
           <div class="card-img"><img src="Images/projects/hsia.jpg" alt="HSIA Terminal"></div>
           <div class="card-body">
             <h4>HSIA — 3rd Terminal</h4>
-            <p style="color:var(--muted);margin-top:6px">Painting inspection and NDT checks for airport structural works.</p>
+            <p style="color:var(--text-muted);margin-top:6px">Painting inspection and NDT checks for airport structural works.</p>
             <div class="tags"><span class="tag">Airport Works</span><span class="tag">Structural Painting</span></div>
           </div>
         </article>
@@ -452,7 +766,7 @@
           <div class="card-img"><img src="Images/projects/metro.jpg" alt="Dhaka Metro Rail"></div>
           <div class="card-body">
             <h4>Dhaka Metro Rail — MRT Line-6</h4>
-            <p style="color:var(--muted);margin-top:6px">Painting inspection for heavy steel structures: weld checks, surface prep and coating quality control.</p>
+            <p style="color:var(--text-muted);margin-top:6px">Painting inspection for heavy steel structures: weld checks, surface prep and coating quality control.</p>
             <div class="tags"><span class="tag">Metro</span><span class="tag">Fabrication</span></div>
           </div>
         </article>
@@ -460,9 +774,9 @@
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="section">
+    <section id="gallery">
       <div class="section-title">Inspection Gallery</div>
-      <p style="text-align:center;color:var(--muted);max-width:1300px;margin:0 auto 20px">
+      <p style="text-align:center;color:var(--text-muted);max-width:1300px;margin:0 auto 20px">
         Click thumbnails to enlarge. Place inspection photos in <code>Images/inspections/</code> with names <code>inspection-01.jpg</code> ... <code>inspection-30.jpg</code>.
       </p>
 
@@ -501,12 +815,12 @@
     </section>
 
     <!-- RESUME -->
-    <section id="resume" class="section">
+    <section id="resume">
       <div class="section-title">Resume & LinkedIn</div>
       <div class="resume-box">
         <div>
           <strong>Md Jakir Hossain — QA/QC Painting Inspector</strong>
-          <div style="color:var(--muted);margin-top:6px">Download my CV or view LinkedIn profile</div>
+          <div style="color:var(--text-muted);margin-top:6px">Download my CV or view LinkedIn profile</div>
         </div>
         <div style="display:flex;gap:10px">
           <a href="Assets/resume/Md_Jakir_Hossain_CV.pdf" download class="btn">Download CV</a>
@@ -516,14 +830,14 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
+    <section id="contact">
       <div class="section-title">Get In Touch</div>
       <div class="contact-wrap">
         <div class="contact-info" style="
-          background: var(--card);
+          background: radial-gradient(circle at 0 0,rgba(0,255,213,0.2),rgba(2,10,26,0.96));
           padding: 24px;
-          border-radius: 14px;
-          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 16px;
+          border: 1px solid rgba(0,255,213,0.7);
         ">
           <h4 style="margin:0 0 18px 0; font-size:1.2rem; color:#FFD84D; font-weight:800;">Contact</h4>
 
@@ -593,11 +907,11 @@
     </section>
 
     <footer style="margin-top:30px">
-      <div style="color:var(--muted);margin-bottom:6px">
+      <div style="color:var(--text-muted);margin-bottom:6px">
         <a href="https://www.linkedin.com/in/jakir-hossain-coating-inspector" target="_blank" style="color:var(--accent)">LinkedIn</a> —
-        <a href="mailto:jakirhossan121bd@gmail.com" style="color:var(--muted)">jakirhossan121bd@gmail.com</a>
+        <a href="mailto:jakirhossan121bd@gmail.com" style="color:var(--text-muted)">jakirhossan121bd@gmail.com</a>
       </div>
-      <div style="color:var(--muted)">© <span id="year"></span> Md Jakir Hossain. All rights reserved.</div>
+      <div style="color:var(--text-muted)">© <span id="year"></span> Md Jakir Hossain. All rights reserved.</div>
     </footer>
   </main>
 
