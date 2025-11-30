@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jakir-paintinginspectorbangladesh.netlify.app/sitemap.xml
