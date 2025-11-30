@@ -55,12 +55,13 @@
 <body>
     
   <!-- Fonts and icons -->
+    <!-- Fonts and icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Minimal, safe CSS (no fancy frameworks) -->
   <style>
-    :root{
+:root{
   /* THEME 1 — NAVY BLUE + AQUA (60-30-10) */
   --bg1: #071428;      /* dominant background (deep navy) */
   --bg2: #0b2940;      /* subtle second background stop */
@@ -74,6 +75,119 @@
   --shadow: 0 10px 30px rgba(2,12,25,0.6);
   --maxw: 1150px;
 }
+
+/* ==== EXTRA VISUAL UPGRADES ==== */
+
+/* Glow under section titles */
+.section-title {
+  position: relative;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 3px;
+  border-radius: 999px;
+  background: radial-gradient(circle, var(--accent) 0, transparent 70%);
+  opacity: 0.9;
+}
+
+/* Floating / glow cards */
+.card,
+.contact-info,
+.contact-form,
+.resume-box,
+.cert-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card:hover,
+.contact-info:hover,
+.contact-form:hover,
+.resume-box:hover,
+.cert-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37,214,240,0.45);
+  box-shadow: 0 18px 40px rgba(12,117,152,0.45);
+}
+
+/* Project image zoom */
+.card-img img {
+  transition: transform 0.25s ease;
+}
+.card:hover .card-img img {
+  transform: scale(1.06);
+}
+
+/* Gallery hover */
+.gallery-item img {
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+  opacity: 0.92;
+}
+.gallery-item:hover figcaption {
+  color: var(--accent);
+}
+
+/* Buttons 3D glow effect */
+.btn,
+.btn-primary,
+.send {
+  position: relative;
+  overflow: hidden;
+}
+.btn::before,
+.btn-primary::before,
+.send::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.btn:hover::before,
+.btn-primary:hover::before,
+.send:hover::before {
+  opacity: 1;
+}
+
+/* Background neon shapes */
+section {
+  position: relative;
+  overflow: hidden;
+}
+section::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 40% 60% 55% 45%;
+  background: radial-gradient(circle at 30% 30%, rgba(37,214,240,0.12), transparent 70%);
+  top: -60px;
+  right: -80px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+section::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 10% 90%, rgba(24,181,198,0.14), transparent 70%);
+  bottom: -80px;
+  left: -60px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+</style>
 /* NAV / HEADER */
 .navbar, header {
   background: linear-gradient(180deg, var(--bg1), var(--bg2));
@@ -647,4 +761,5 @@ footer {
 </body>
 
 </html>
+
 
