@@ -59,284 +59,250 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- GLOBAL THEME + LAYOUT CSS -->
+  <!-- ALL CSS (only one <style>) -->
   <style>
-/* ===== GLOBAL THEME ===== */
-:root{
-  --bg1:#071428;
-  --bg2:#0b2940;
-  --card:#0f2f44;
-  --accent:#25d6f0;
-  --accent-2:#18b5c6;
-  --text:#EAF6FA;
-  --muted:#9db6c4;
-  --muted-2:#7b98a6;
-  --round:12px;
-  --shadow:0 10px 30px rgba(2,12,25,0.6);
-  --maxw:1150px;
-}
+  /* ===== GLOBAL THEME ===== */
+  :root{
+    --bg1:#071428;
+    --bg2:#0b2940;
+    --card:#0f2f44;
+    --accent:#25d6f0;
+    --accent-2:#18b5c6;
+    --text:#EAF6FA;
+    --muted:#9db6c4;
+    --muted-2:#7b98a6;
+    --round:12px;
+    --shadow:0 10px 30px rgba(2,12,25,0.6);
+    --maxw:1150px;
+  }
 
-/* ===== HEADER ===== */
-header, .navbar{
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
-  color:var(--text);
-}
-.navbar a{color:var(--text);}
-.navbar a:hover{color:var(--accent);}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    background: linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+  }
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  .container{max-width:var(--maxw);margin:0 auto;padding:22px}
 
-/* ===== BUTTONS ===== */
-.btn,.btn-primary{
-  background:linear-gradient(180deg,var(--accent),var(--accent-2));
-  color:#04252b;
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:var(--round);
-  padding:10px 16px;
-  box-shadow:0 6px 18px rgba(5,30,40,0.35);
-  transition:0.2s;
-}
-.btn:hover,.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 14px 30px rgba(23,142,154,0.12);
-}
+  /* ===== NAV / HEADER ===== */
+  header{
+    position:sticky;
+    top:0;
+    background:rgba(4,7,12,0.45);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.03);
+    z-index:50;
+  }
+  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px}
+  .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:700}
+  .brand i{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px}
+  nav ul{display:flex;gap:16px;list-style:none}
+  nav a{font-weight:600;text-decoration:none;opacity:0.95}
+  .navbar a, header a { color: var(--text); }
+  .navbar a:hover, header a:hover { color: var(--accent); }
 
-/* ===== CARDS ===== */
-.card,.contact-info,.contact-form,.resume-box,.cert-item{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.05);
-  padding:12px;
-  border-radius:var(--round);
-  box-shadow:var(--shadow);
-  transition:0.25s ease;
-}
-.card:hover,.contact-info:hover,.contact-form:hover,.resume-box:hover,.cert-item:hover{
-  transform:translateY(-4px);
-  border-color:rgba(37,214,240,0.45);
-  box-shadow:0 18px 40px rgba(12,117,152,0.45);
-}
+  /* ===== BUTTONS ===== */
+  .btn, .btn-primary{
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    color:#04252b;
+    border:1px solid rgba(255,255,255,0.06);
+    border-radius:var(--round);
+    padding:10px 16px;
+    box-shadow:0 6px 18px rgba(5,30,40,0.35);
+    text-decoration:none;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-outline{
+    background:transparent;
+    color:var(--accent);
+    border:1px solid rgba(37,214,240,0.18);
+  }
+  .btn:hover, .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(23,142,154,0.12);
+  }
 
-/* ===== SECTION TITLE ===== */
-.section-title{
-  color:var(--accent);
-  font-weight:800;
-  text-align:center;
-  font-size:1.4rem;
-  margin-bottom:18px;
-  position:relative;
-}
-.section-title::after{
-  content:"";
-  width:90px;
-  height:3px;
-  background:radial-gradient(circle,var(--accent),transparent);
-  position:absolute;
-  left:50%;
-  bottom:-8px;
-  transform:translateX(-50%);
-}
+  .send{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    background:transparent;
+    font-weight:700;
+  }
 
-/* ===== PROJECT IMAGE HOVER ===== */
-.card-img img{transition:0.3s;}
-.card:hover .card-img img{transform:scale(1.08);}
+  /* ===== CARDS ===== */
+  .card, .contact-info, .contact-form, .resume-box, .cert-item{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);
+    color:var(--text);
+    border-radius:var(--round);
+    box-shadow:var(--shadow);
+    padding:12px;
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover, .contact-info:hover, .contact-form:hover, .resume-box:hover, .cert-item:hover{
+    transform:translateY(-4px);
+    border-color:rgba(37,214,240,0.45);
+    box-shadow:0 18px 40px rgba(12,117,152,0.45);
+  }
 
-/* ===== GALLERY HOVER ===== */
-.gallery-item img{transition:0.3s;}
-.gallery-item:hover img{
-  transform:scale(1.05);
-  opacity:0.92;
-}
-.gallery-item:hover figcaption{color:var(--accent);}
+  /* ===== HEADINGS + LINKS ===== */
+  h1,h2,h3{color:var(--text);}
+  .about-title{color:var(--accent);}
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;color:var(--accent-2);}
 
-/* ===== GLOW EFFECT BEHIND SECTIONS ===== */
-section{
-  position:relative;
-  overflow:hidden;
-}
-section::before{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  border-radius:40% 60% 55% 45%;
-  background:radial-gradient(circle,rgba(37,214,240,0.12),transparent);
-  top:-60px;
-  right:-80px;
-}
-section::after{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(24,181,198,0.14),transparent);
-  bottom:-80px;
-  left:-60px;
-}
-</style>
-</head>
-<body>
-/* NAV / HEADER */
-.navbar, header {
-  background: linear-gradient(180deg, var(--bg1), var(--bg2));
-  color: var(--text);
-}
-.navbar a, header a { color: var(--text); }
-.navbar a:hover { color: var(--accent); }
+  /* ===== IMAGE FRAMES ===== */
+  .portrait img,.profile-photo{
+    border-radius:12px;
+    border:3px solid rgba(24,181,198,0.12);
+    background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(0,0,0,0.06));
+  }
 
-/* BUTTONS */
-.btn, .btn-primary {
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
-  color: #04252b; /* dark text on aqua buttons for contrast */
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--round);
-  padding: 10px 16px;
-  box-shadow: 0 6px 18px rgba(5,30,40,0.35);
-}
-.btn-outline {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid rgba(37,214,240,0.18);
-}
-.btn:hover, .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(23,142,154,0.12);
-}
+  /* ===== HERO ===== */
+  .hero{display:flex;gap:28px;align-items:center;padding:48px 0}
+  .hero-left{flex:1}
+  .hero h1{font-size:1.9rem;line-height:1.05;margin-bottom:12px}
+  .hero p{color:var(--muted);max-width:720px}
+  .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+  .portrait{width:220px;border-radius:16px;overflow:hidden;border:6px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);flex-shrink:0}
 
-/* CARDS */
-.card, .contact-info, .cert-item {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.03);
-  color: var(--text);
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-}
+  /* ===== SECTIONS ===== */
+  section{padding:36px 0; position:relative; overflow:hidden;}
+  .section-title{
+    color:var(--accent);
+    font-weight:800;
+    text-align:center;
+    font-size:1.4rem;
+    margin-bottom:18px;
+    position:relative;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .section-title::after{
+    content:"";
+    width:90px;
+    height:3px;
+    background:radial-gradient(circle,var(--accent),transparent);
+    position:absolute;
+    left:50%;
+    bottom:-8px;
+    transform:translateX(-50%);
+  }
+  /* background glow shapes */
+  section::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:40% 60% 55% 45%;
+    background:radial-gradient(circle,rgba(37,214,240,0.12),transparent 70%);
+    top:-60px;
+    right:-80px;
+    pointer-events:none;
+  }
+  section::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(24,181,198,0.14),transparent 70%);
+    bottom:-80px;
+    left:-60px;
+    pointer-events:none;
+  }
 
-/* HEADINGS + ACCENTS */
-h1, h2, h3 { color: var(--text); }
-.section-title, .about-title { color: var(--accent); }
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
+  .about-text p{color:var(--muted);margin:8px 0}
+  .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .skill{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);min-width:160px;text-align:center}
 
-/* LINKS */
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; color: var(--accent-2); }
+  /* Experience */
+  .timeline{display:flex;flex-direction:column;gap:14px}
+  .job{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+  .job .company{color:var(--muted);font-weight:600;margin-bottom:8px}
 
-/* IMAGE FRAMES */
-.portrait img, .profile-photo {
-  border-radius: 12px;
-  border: 3px solid rgba(24,181,198,0.12);
-  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));
-}
+  /* Projects cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .card-img{height:140px;overflow:hidden}
+  .card-img img{height:100%;width:100%;object-fit:cover;transition:0.3s;}
+  .card:hover .card-img img{transform:scale(1.08);}
+  .card-body{padding:12px}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .tag{background:rgba(22,225,194,0.06);padding:6px 8px;border-radius:999px;color:var(--accent);font-weight:700;font-size:0.85rem}
 
-/* CONTACT TABLE LABELS (if you want bold labels) */
-.contact-table .label {
-  color: var(--accent);
-  font-weight:700;
-}
-.contact-table .value { color: var(--muted); }
+  /* Certifications */
+  .cert-list{display:flex;flex-direction:column;gap:10px}
 
-/* FOOTER */
-footer {
-  background: linear-gradient(180deg, var(--bg2), #041624);
-  color: var(--muted);
-}
+  /* Gallery */
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .gallery-item{background:var(--card);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
+  .gallery-item img{height:120px;object-fit:cover;width:100%;transition:0.3s;}
+  .gallery-item figcaption{padding:8px;color:var(--muted);font-size:0.86rem}
+  .gallery-item:hover img{transform:scale(1.05);opacity:0.92;}
+  .gallery-item:hover figcaption{color:var(--accent);}
 
-/* small responsive tweak */
-@media (max-width:900px){
-  .about-grid, .contact-wrap { grid-template-columns: 1fr; }
-  .portrait img { width: 160px; }
-}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background: linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
-    a{color:inherit}
-    img{display:block;max-width:100%}
+  /* Resume & Contact */
+  .resume-box{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .contact-wrap{display:grid;grid-template-columns:360px 1fr;gap:14px}
+  label{display:block;font-weight:700;margin-bottom:6px}
+  input,textarea{
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.03);
+    background:rgba(255,255,255,0.02);
+    color:var(--text);
+  }
+  textarea{min-height:120px}
 
-    .container{max-width:var(--maxw);margin:0 auto;padding:22px}
+  /* Footer */
+  footer{
+    padding:20px 0;
+    color:var(--muted);
+    text-align:center;
+    font-size:0.9rem;
+    background: linear-gradient(180deg, var(--bg2), #041624);
+  }
 
-    /* Header */
-    header{position:sticky;top:0;background:rgba(4,7,12,0.45);backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03);z-index:50}
-    .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px}
-    .brand{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:700}
-    .brand i{background:rgba(255,255,255,0.03);padding:8px;border-radius:8px}
-    nav ul{display:flex;gap:16px;list-style:none}
-    nav a{font-weight:600;text-decoration:none;opacity:0.95}
-    .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:700;background:transparent}
+  /* Lightbox */
+  .lb{position:fixed;inset:0;background:rgba(3,9,16,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .18s}
+  .lb.open{opacity:1;pointer-events:auto}
+  .lb img{max-width:92%;max-height:82%;border-radius:8px;box-shadow:var(--shadow)}
+  .lb .close{position:absolute;top:18px;right:18px;color:var(--text);font-size:28px;cursor:pointer}
+  .lb .navbtn{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:var(--text);cursor:pointer;padding:10px}
+  .lb .prev{left:18px}
+  .lb .next{right:18px}
 
-    /* HERO */
-    .hero{display:flex;gap:28px;align-items:center;padding:48px 0}
-    .hero-left{flex:1}
-    .hero h1{font-size:1.9rem;line-height:1.05;margin-bottom:12px}
-    .hero p{color:var(--muted);max-width:720px}
-    .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
-    .portrait{width:220px;border-radius:16px;overflow:hidden;border:6px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);flex-shrink:0}
-
-    /* Sections */
-    section{padding:36px 0}
-    .section-title{font-size:1.4rem;color:var(--accent);text-align:center;margin-bottom:18px;font-weight:800}
-
-    /* About */
-    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
-    .about-text p{color:var(--muted);margin:8px 0}
-    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .skill{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);min-width:160px;text-align:center}
-
-    /* Experience */
-    .timeline{display:flex;flex-direction:column;gap:14px}
-    .job{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    .job h3{margin-bottom:6px}
-    .job .company{color:var(--muted);font-weight:600;margin-bottom:8px}
-
-    /* Projects cards */
-    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-    .card{background:linear-gradient(180deg, rgba(7,18,30,0.96), rgba(9,22,34,0.96));border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);box-shadow:var(--shadow)}
-    .card-img{height:140px;overflow:hidden}
-    .card-body{padding:12px}
-    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .tag{background:rgba(22,225,194,0.06);padding:6px 8px;border-radius:999px;color:var(--accent);font-weight:700;font-size:0.85rem}
-
-    /* Certifications */
-    .cert-list{display:flex;flex-direction:column;gap:10px}
-    .cert-item{background:var(--card);padding:12px;border-radius:10px;border:1px dashed rgba(255,255,255,0.02)}
-
-    /* Gallery */
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-    .gallery-item{background:var(--card);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.02)}
-    .gallery-item img{height:120px;object-fit:cover;width:100%}
-    .gallery-item figcaption{padding:8px;color:var(--muted);font-size:0.86rem}
-
-    /* Resume & Contact */
-    .resume-box{background:var(--card);padding:14px;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(255,255,255,0.03)}
-    .contact-wrap{display:grid;grid-template-columns:360px 1fr;gap:14px}
-    .contact-info, .contact-form{background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    label{display:block;font-weight:700;margin-bottom:6px}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:var(--text)}
-    textarea{min-height:120px}
-    .send{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);background:transparent;font-weight:700}
-
-    /* Footer */
-    footer{padding:20px 0;color:var(--muted);text-align:center;font-size:0.9rem}
-
-    /* Lightbox */
-    .lb{position:fixed;inset:0;background:rgba(3,9,16,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .18s}
-    .lb.open{opacity:1;pointer-events:auto}
-    .lb img{max-width:92%;max-height:82%;border-radius:8px;box-shadow:var(--shadow)}
-    .lb .close{position:absolute;top:18px;right:18px;color:var(--text);font-size:28px;cursor:pointer}
-    .lb .navbtn{position:absolute;top:50%;transform:translateY(-50%);font-size:36px;color:var(--text);cursor:pointer;padding:10px}
-    .lb .prev{left:18px} .lb .next{right:18px}
-
-    /* Responsive */
-    @media(max-width:980px){
-      .about-grid{grid-template-columns:1fr}
-      .hero{flex-direction:column;align-items:flex-start}
-      .contact-wrap{grid-template-columns:1fr}
-      nav ul{display:none}
-      .portrait{width:180px}
-    }
+  /* Responsive */
+  @media(max-width:980px){
+    .about-grid{grid-template-columns:1fr}
+    .hero{flex-direction:column;align-items:flex-start}
+    .contact-wrap{grid-template-columns:1fr}
+    nav ul{display:none}
+    .portrait{width:180px}
+  }
+  @media (max-width:900px){
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+    .portrait img { width:160px; }
+  }
   </style>
 </head>
 
@@ -365,15 +331,14 @@ footer {
       <div class="hero-left">
         <h1>Professional QA/QC Painting Inspector & NDT Level-2 Engineer</h1>
         <p>BGAS-CSWIP Grade-II & NDT Level-2 — Coating inspection, blasting supervision, DFT & holiday testing, and NDT across oil & gas, rail and airport projects. Specialist in inspection documentation (ITP, NCR), calibration and on-site coordination.</p>
-       <div class="hero-ctas">
-  <a href="#projects" class="btn">View Projects</a>
-  <a href="#contact" class="send">Get In Touch <i class="fa-solid fa-paper-plane" style="color:var(--accent)"></i></a>
-  <a href="Assets/resume/Md_Jakir_Hossain_CV.pdf" class="btn btn-primary" download>Download CV</a>
-</div>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="send">Get In Touch <i class="fa-solid fa-paper-plane" style="color:var(--accent)"></i></a>
+          <a href="Assets/resume/Md_Jakir_Hossain_CV.pdf" class="btn btn-primary" download>Download CV</a>
+        </div>
       </div>
 
       <div class="portrait" aria-hidden="true">
-        <!-- Make sure your portrait file is at Images/myphoto.jpg -->
         <img src="Images/myphoto.jpg" alt="Portrait of Md Jakir Hossain QA QC Certified Painting Inspector Bangladesh">
       </div>
     </section>
@@ -396,7 +361,6 @@ footer {
           </div>
         </div>
 
-        <!-- Quick contact & cert summary -->
         <div>
           <div class="card" style="padding:12px;margin-bottom:12px">
             <h4 style="margin:0">Contact</h4>
@@ -498,10 +462,11 @@ footer {
     <!-- GALLERY -->
     <section id="gallery" class="section">
       <div class="section-title">Inspection Gallery</div>
-      <p style="text-align:center;color:var(--muted);max-width:1300px;margin:0 auto 20px">Click thumbnails to enlarge. Place inspection photos in <code>Images/inspections/</code> with names <code>inspection-01.jpg</code> ... <code>inspection-30.jpg</code>.</p>
+      <p style="text-align:center;color:var(--muted);max-width:1300px;margin:0 auto 20px">
+        Click thumbnails to enlarge. Place inspection photos in <code>Images/inspections/</code> with names <code>inspection-01.jpg</code> ... <code>inspection-30.jpg</code>.
+      </p>
 
       <div class="gallery-grid" id="galleryGrid">
-        <!-- 30 thumbnails (make sure corresponding files exist in Images/inspections/) -->
         <figure class="gallery-item"><a href="Images/inspections/inspection-01.jpg"><img loading="lazy" src="Images/inspections/inspection-01.jpg" alt="DFT measurement — Bibiyana"><figcaption>Blasting Surface Check-ISO 8501 — Bibiyana</figcaption></a></figure>
         <figure class="gallery-item"><a href="Images/inspections/inspection-02.jpg"><img loading="lazy" src="Images/inspections/inspection-02.jpg" alt="Thickness check"><figcaption>Insulation Coating DFT</figcaption></a></figure>
         <figure class="gallery-item"><a href="Images/inspections/inspection-03.jpg"><img loading="lazy" src="Images/inspections/inspection-03.jpg" alt="Thickness check"><figcaption>Mid Coat DFT</figcaption></a></figure>
@@ -555,101 +520,83 @@ footer {
       <div class="section-title">Get In Touch</div>
       <div class="contact-wrap">
         <div class="contact-info" style="
-    background: var(--card);
-    padding: 24px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
-">
-    <h4 style="margin:0 0 18px 0; font-size:1.2rem; color:#FFD84D; font-weight:800;">
-        Contact
-    </h4>
+          background: var(--card);
+          padding: 24px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.08);
+        ">
+          <h4 style="margin:0 0 18px 0; font-size:1.2rem; color:#FFD84D; font-weight:800;">Contact</h4>
 
-    <table style="
-        width:100%;
-        border-collapse:collapse;
-        font-size:1rem;
-        font-weight:700;
-    ">
-        <tr style="background:rgba(255,255,255,0.06);">
-            <td style="padding:12px; color:#FFD84D; width:130px;">Email</td>
-            <td style="padding:12px; color:#FFD84D;">
-                jakirhossan121bd@gmail.com
-            </td>
-        </tr>
-
-        <tr style="background:rgba(255,255,255,0.03);">
-            <td style="padding:12px; color:#FFD84D;">Phone</td>
-            <td style="padding:12px; color:#FFD84D;">
-                +8801774141368
-            </td>
-        </tr>
-
-        <tr style="background:rgba(255,255,255,0.06);">
-            <td style="padding:12px; color:#FFD84D;">Location</td>
-            <td style="padding:12px; color:#FFD84D;">
-                Rangpur, Bangladesh
-            </td>
-        </tr>
-
-        <tr style="background:rgba(255,255,255,0.03);">
-            <td style="padding:12px; color:#FFD84D;">LinkedIn</td>
-            <td style="padding:12px;">
+          <table style="width:100%;border-collapse:collapse;font-size:1rem;font-weight:700;">
+            <tr style="background:rgba(255,255,255,0.06);">
+              <td style="padding:12px; color:#FFD84D; width:130px;">Email</td>
+              <td style="padding:12px; color:#FFD84D;">jakirhossan121bd@gmail.com</td>
+            </tr>
+            <tr style="background:rgba(255,255,255,0.03);">
+              <td style="padding:12px; color:#FFD84D;">Phone</td>
+              <td style="padding:12px; color:#FFD84D;">+8801774141368</td>
+            </tr>
+            <tr style="background:rgba(255,255,255,0.06);">
+              <td style="padding:12px; color:#FFD84D;">Location</td>
+              <td style="padding:12px; color:#FFD84D;">Rangpur, Bangladesh</td>
+            </tr>
+            <tr style="background:rgba(255,255,255,0.03);">
+              <td style="padding:12px; color:#FFD84D;">LinkedIn</td>
+              <td style="padding:12px;">
                 <a href="https://www.linkedin.com/in/jakir-hossain-coating-inspector"
                    target="_blank"
                    style="color:#FFD84D; text-decoration:none;">
-                    linkedin.com/in/jakir-hossain-coating-inspector
+                  linkedin.com/in/jakir-hossain-coating-inspector
                 </a>
-            </td>
-        </tr>
-    </table>
-</div>
-
-        <!-- Contact Form Section -->
-<form action="https://formspree.io/f/manrwovd" method="POST" class="contact-form">
-
-    <!-- Redirect after submit -->
-    <input type="hidden" name="_redirect" value="https://jakircoatinginspector-droid.github.io/Jakir-Hossain-BGAS-Certified-Coating-Inspector/thank-you.html">
-
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:200px">
-            <label for="name">Your Name</label><br>
-            <input id="name" name="name" type="text" required>
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <div style="width:260px;min-width:200px">
-            <label for="email">Your Email</label><br>
-            <input id="email" name="email" type="email" required>
-        </div>
-    </div>
+        <form action="https://formspree.io/f/manrwovd" method="POST" class="contact-form">
+          <input type="hidden" name="_redirect" value="https://jakircoatinginspector-droid.github.io/Jakir-Hossain-BGAS-Certified-Coating-Inspector/thank-you.html">
 
-    <div style="margin-top:10px">
-        <label for="phone">Phone Number</label><br>
-        <input id="phone" name="phone" type="text">
-    </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <div style="flex:1;min-width:200px">
+              <label for="name">Your Name</label>
+              <input id="name" name="name" type="text" required>
+            </div>
 
-    <div style="margin-top:10px">
-        <label for="subject">Subject</label><br>
-        <input id="subject" name="subject" type="text" required>
-    </div>
+            <div style="width:260px;min-width:200px">
+              <label for="email">Your Email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+          </div>
 
-    <div style="margin-top:10px">
-        <label for="message">Message</label><br>
-        <textarea id="message" name="message" rows="6" required></textarea>
-    </div>
+          <div style="margin-top:10px">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="text">
+          </div>
 
-    <div style="margin-top:10px">
-        <button type="submit" class="send btn btn-primary">
-            <i class="fa-solid fa-paper-plane"></i> Send Message
-        </button>
-    </div>
+          <div style="margin-top:10px">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required>
+          </div>
 
-</form>
+          <div style="margin-top:10px">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
 
+          <div style="margin-top:10px">
+            <button type="submit" class="send btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </form>
       </div>
     </section>
 
     <footer style="margin-top:30px">
-      <div style="color:var(--muted);margin-bottom:6px"><a href="https://www.linkedin.com/in/jakir-hossain-coating-inspector" target="_blank" style="color:var(--accent)">LinkedIn</a> — <a href="mailto:jakirhossan121bd@gmail.com" style="color:var(--muted)">jakirhossan121bd@gmail.com</a></div>
+      <div style="color:var(--muted);margin-bottom:6px">
+        <a href="https://www.linkedin.com/in/jakir-hossain-coating-inspector" target="_blank" style="color:var(--accent)">LinkedIn</a> —
+        <a href="mailto:jakirhossan121bd@gmail.com" style="color:var(--muted)">jakirhossan121bd@gmail.com</a>
+      </div>
       <div style="color:var(--muted)">© <span id="year"></span> Md Jakir Hossain. All rights reserved.</div>
     </footer>
   </main>
@@ -666,11 +613,12 @@ footer {
     // footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Lightbox: simple
+    // Lightbox
     const galleryAnchors = Array.from(document.querySelectorAll('#galleryGrid a'));
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     let currentIndex = 0;
+
     galleryAnchors.forEach((a, idx) => {
       a.addEventListener('click', (e) => {
         e.preventDefault();
@@ -678,6 +626,7 @@ footer {
         openLB(a.getAttribute('href'));
       });
     });
+
     function openLB(src){
       lbImg.src = src;
       lb.classList.add('open');
@@ -698,13 +647,15 @@ footer {
       currentIndex = (currentIndex - 1 + galleryAnchors.length) % galleryAnchors.length;
       lbImg.src = galleryAnchors[currentIndex].getAttribute('href');
     }
-    document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLB(); if(e.key === 'ArrowRight') lbNext(); if(e.key === 'ArrowLeft') lbPrev(); });
-
-    // Netlify form: no JS required. this is left intentionally minimal.
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeLB();
+      if(e.key === 'ArrowRight') lbNext();
+      if(e.key === 'ArrowLeft') lbPrev();
+    });
   </script>
 
-  <!-- Small structured data for Google (image gallery samples) -->
-    <script type="application/ld+json">
+  <!-- Image gallery structured data -->
+  <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"ImageGallery",
@@ -745,9 +696,4 @@ footer {
   }
   </script>
 </body>
-
 </html>
-
-
-
-
