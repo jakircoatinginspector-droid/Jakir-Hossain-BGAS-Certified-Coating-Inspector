@@ -61,129 +61,117 @@
 
   <!-- GLOBAL THEME + LAYOUT CSS -->
   <style>
-    :root{
-      /* THEME 1 — NAVY BLUE + AQUA (60-30-10) */
-      --bg1: #071428;
-      --bg2: #0b2940;
-      --card: #0f2f44;
-      --accent: #25d6f0;
-      --accent-2: #18b5c6;
-      --text: #EAF6FA;
-      --muted: #9db6c4;
-      --muted-2: #7b98a6;
-      --round: 12px;
-      --shadow: 0 10px 30px rgba(2,12,25,0.6);
-      --maxw: 1150px;
-    }
+/* ===== GLOBAL THEME ===== */
+:root{
+  --bg1:#071428;
+  --bg2:#0b2940;
+  --card:#0f2f44;
+  --accent:#25d6f0;
+  --accent-2:#18b5c6;
+  --text:#EAF6FA;
+  --muted:#9db6c4;
+  --muted-2:#7b98a6;
+  --round:12px;
+  --shadow:0 10px 30px rgba(2,12,25,0.6);
+  --maxw:1150px;
+}
 
-    /* ... KEEP ALL YOUR EXISTING CSS HERE ... */
+/* ===== HEADER ===== */
+header, .navbar{
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--text);
+}
+.navbar a{color:var(--text);}
+.navbar a:hover{color:var(--accent);}
 
-    /* ==== EXTRA VISUAL UPGRADES ==== */
+/* ===== BUTTONS ===== */
+.btn,.btn-primary{
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:#04252b;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--round);
+  padding:10px 16px;
+  box-shadow:0 6px 18px rgba(5,30,40,0.35);
+  transition:0.2s;
+}
+.btn:hover,.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(23,142,154,0.12);
+}
 
-    .section-title {
-      position: relative;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .section-title::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: -8px;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 3px;
-      border-radius: 999px;
-      background: radial-gradient(circle, var(--accent) 0, transparent 70%);
-      opacity: 0.9;
-    }
+/* ===== CARDS ===== */
+.card,.contact-info,.contact-form,.resume-box,.cert-item{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  padding:12px;
+  border-radius:var(--round);
+  box-shadow:var(--shadow);
+  transition:0.25s ease;
+}
+.card:hover,.contact-info:hover,.contact-form:hover,.resume-box:hover,.cert-item:hover{
+  transform:translateY(-4px);
+  border-color:rgba(37,214,240,0.45);
+  box-shadow:0 18px 40px rgba(12,117,152,0.45);
+}
 
-    .card,
-    .contact-info,
-    .contact-form,
-    .resume-box,
-    .cert-item {
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-    .card:hover,
-    .contact-info:hover,
-    .contact-form:hover,
-    .resume-box:hover,
-    .cert-item:hover {
-      transform: translateY(-4px);
-      border-color: rgba(37,214,240,0.45);
-      box-shadow: 0 18px 40px rgba(12,117,152,0.45);
-    }
+/* ===== SECTION TITLE ===== */
+.section-title{
+  color:var(--accent);
+  font-weight:800;
+  text-align:center;
+  font-size:1.4rem;
+  margin-bottom:18px;
+  position:relative;
+}
+.section-title::after{
+  content:"";
+  width:90px;
+  height:3px;
+  background:radial-gradient(circle,var(--accent),transparent);
+  position:absolute;
+  left:50%;
+  bottom:-8px;
+  transform:translateX(-50%);
+}
 
-    .card-img img {
-      transition: transform 0.25s ease;
-    }
-    .card:hover .card-img img {
-      transform: scale(1.06);
-    }
+/* ===== PROJECT IMAGE HOVER ===== */
+.card-img img{transition:0.3s;}
+.card:hover .card-img img{transform:scale(1.08);}
 
-    .gallery-item img {
-      transition: transform 0.25s ease, opacity 0.2s ease;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      opacity: 0.92;
-    }
-    .gallery-item:hover figcaption {
-      color: var(--accent);
-    }
+/* ===== GALLERY HOVER ===== */
+.gallery-item img{transition:0.3s;}
+.gallery-item:hover img{
+  transform:scale(1.05);
+  opacity:0.92;
+}
+.gallery-item:hover figcaption{color:var(--accent);}
 
-    .btn,
-    .btn-primary,
-    .send {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn::before,
-    .btn-primary::before,
-    .send::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(255,255,255,0.18), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    .btn:hover::before,
-    .btn-primary:hover::before,
-    .send:hover::before {
-      opacity: 1;
-    }
-
-    section {
-      position: relative;
-      overflow: hidden;
-    }
-    section::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 40% 60% 55% 45%;
-      background: radial-gradient(circle at 30% 30%, rgba(37,214,240,0.12), transparent 70%);
-      top: -60px;
-      right: -80px;
-      opacity: 0.7;
-      pointer-events: none;
-    }
-    section::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 10% 90%, rgba(24,181,198,0.14), transparent 70%);
-      bottom: -80px;
-      left: -60px;
-      opacity: 0.7;
-      pointer-events: none;
-    }
-  </style>
+/* ===== GLOW EFFECT BEHIND SECTIONS ===== */
+section{
+  position:relative;
+  overflow:hidden;
+}
+section::before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  border-radius:40% 60% 55% 45%;
+  background:radial-gradient(circle,rgba(37,214,240,0.12),transparent);
+  top:-60px;
+  right:-80px;
+}
+section::after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(24,181,198,0.14),transparent);
+  bottom:-80px;
+  left:-60px;
+}
+</style>
 </head>
 <body>
 /* NAV / HEADER */
@@ -759,6 +747,7 @@ footer {
 </body>
 
 </html>
+
 
 
 
