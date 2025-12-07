@@ -570,20 +570,29 @@
       RESPONSIVE
       ============================ */
 
-  @media(max-width:980px){
-    .about-grid{grid-template-columns:1fr}
-    .hero{
-      grid-template-columns:1fr;
-      padding:38px 22px 30px;
-    }
-    .hero-right{
-      order:-1;
-      justify-self:flex-start;
-    }
-    .contact-wrap{grid-template-columns:1fr}
-    nav ul{display:none}
-    .portrait{width:220px}
-    section{padding:32px 18px;margin-top:26px;}
+ @media(max-width:980px){
+  .about-grid{grid-template-columns:1fr}
+  .hero{
+    grid-template-columns:1fr;
+    padding:38px 22px 30px;
+  }
+  .hero-right{
+    order:-1;
+    justify-self:flex-start;
+  }
+  .contact-wrap{grid-template-columns:1fr}
+
+  /* 🔹 FIXED NAV FOR MOBILE */
+  nav ul{
+    display:flex; 
+    flex-wrap:wrap;
+    gap:12px;
+    margin:0;
+    padding:8px 0;
+  }
+
+  .portrait{width:220px}
+  section{padding:32px 18px;margin-top:26px;}
   }
   @media (max-width:900px){
     .about-grid, .contact-wrap { grid-template-columns: 1fr; }
@@ -1012,4 +1021,5 @@
   </script>
 </body>
 </html>
+
 
