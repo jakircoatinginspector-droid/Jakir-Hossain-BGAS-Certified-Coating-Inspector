@@ -515,7 +515,37 @@
       CERTIFICATIONS
       ============================ */
 
-  .cert-list{display:flex;flex-direction:column;gap:10px}
+    /* ============================
+   CERTIFICATIONS
+   ============================ */
+
+.cert-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* Each certification card layout */
+.cert-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+
+/* Text area */
+.cert-info{
+  flex:1;
+}
+
+/* Certificate image style */
+.cert-img img{
+  width:110px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.18);
+  object-fit:cover;
+  box-shadow:0 10px 28px rgba(0,0,0,0.85);
+}
 
   /*  ============================
       GALLERY
@@ -739,15 +769,81 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
+        <!-- CERTIFICATIONS -->
     <section id="certifications">
       <div class="section-title">Professional Certifications</div>
       <div class="cert-list">
-        <div class="cert-item"><strong>BGAS-CSWIP — Painting Inspector Grade-II</strong><div style="color:var(--text-muted);margin-top:6px">TWI certified — Coating inspection & surface preparation.</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (UT)</strong><div style="color:var(--text-muted);margin-top:6px">Ultrasonic Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (PT)</strong><div style="color:var(--text-muted);margin-top:6px">Penetrant Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (MT)</strong><div style="color:var(--text-muted);margin-top:6px">Magnetic Particle Testing — Level-2</div></div>
-        <div class="cert-item"><strong>NDT Level-2 (RT)</strong><div style="color:var(--text-muted);margin-top:6px">Radiographic Testing — Level-2</div></div>
+
+        <!-- 1. BGAS-CSWIP -->
+        <div class="cert-item">
+          <div class="cert-info">
+            <strong>BGAS-CSWIP — Painting Inspector Grade-II</strong>
+            <div style="color:var(--text-muted);margin-top:6px">
+              TWI certified — Coating inspection & surface preparation.
+            </div>
+          </div>
+          <div class="cert-img">
+            <img src="Images/certificates/bgas-cswip.jpg"
+                 alt="BGAS-CSWIP Painting Inspector Grade-II Certificate">
+          </div>
+        </div>
+
+        <!-- 2. NDT UT -->
+        <div class="cert-item">
+          <div class="cert-info">
+            <strong>NDT Level-2 (UT)</strong>
+            <div style="color:var(--text-muted);margin-top:6px">
+              Ultrasonic Testing — Level-2
+            </div>
+          </div>
+          <div class="cert-img">
+            <img src="Images/certificates/ndt-ut.jpg"
+                 alt="NDT Level-2 Ultrasonic Testing Certificate">
+          </div>
+        </div>
+
+        <!-- 3. NDT PT -->
+        <div class="cert-item">
+          <div class="cert-info">
+            <strong>NDT Level-2 (PT)</strong>
+            <div style="color:var(--text-muted);margin-top:6px">
+              Penetrant Testing — Level-2
+            </div>
+          </div>
+          <div class="cert-img">
+            <img src="Images/certificates/ndt-pt.jpg"
+                 alt="NDT Level-2 Penetrant Testing Certificate">
+          </div>
+        </div>
+
+        <!-- 4. NDT MT -->
+        <div class="cert-item">
+          <div class="cert-info">
+            <strong>NDT Level-2 (MT)</strong>
+            <div style="color:var(--text-muted);margin-top:6px">
+              Magnetic Particle Testing — Level-2
+            </div>
+          </div>
+          <div class="cert-img">
+            <img src="Images/certificates/ndt-mt.jpg"
+                 alt="NDT Level-2 Magnetic Particle Testing Certificate">
+          </div>
+        </div>
+
+        <!-- 5. NDT RT -->
+        <div class="cert-item">
+          <div class="cert-info">
+            <strong>NDT Level-2 (RT)</strong>
+            <div style="color:var(--text-muted);margin-top:6px">
+              Radiographic Testing — Level-2
+            </div>
+          </div>
+          <div class="cert-img">
+            <img src="Images/certificates/ndt-rt.jpg"
+                 alt="NDT Level-2 Radiographic Testing Certificate">
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1122,6 +1218,7 @@
   </script>
 </body>
 </html>
+
 
 
 
