@@ -2,99 +2,527 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Painting Tools | Md Jakir Hossain</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airless Spray Painting Equipment Expertise | Md Jakir Hossain</title>
+
   <style>
-    body{
-      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
-      background:#0b1120;
-      color:#e5e7eb;
-      line-height:1.6;
+    :root {
+      --primary: #003087;
+      --primary-light: #0050b3;
+      --accent: #0ea5e9;
+      --bg: #f4f7fa;
+      --card-bg: #fafafa;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --border-soft: #e5e7eb;
     }
-    .tool-card{
-      background:#020617;
-      border-radius:12px;
-      padding:16px 20px;
-      margin-bottom:16px;
-      box-shadow:0 4px 18px rgba(15,23,42,0.7);
-      border:1px solid #1f2937;
+
+    * {
+      box-sizing: border-box;
     }
-    .tool-card h2{margin:0 0 4px 0;color:#38bdf8;font-size:1.05rem;}
-    .tool-card p{margin:4px 0 0 0;font-size:0.9rem;color:#9ca3af;}
-    ul{padding-left:18px;font-size:0.9rem;color:#cbd5f5;}
+
+    body {
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 32px auto 40px;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(120deg, var(--primary), var(--primary-light));
+      color: #ffffff;
+      padding: 36px 24px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.35rem;
+      letter-spacing: 0.02em;
+    }
+
+    header p {
+      margin: 10px auto 0;
+      font-size: 1.05rem;
+      max-width: 640px;
+      opacity: 0.95;
+    }
+
+    .tagline {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    .section {
+      padding: 28px 40px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      color: var(--primary);
+      border-left: 6px solid var(--primary);
+      padding-left: 14px;
+      margin: 0 0 14px;
+      font-size: 1.55rem;
+    }
+
+    .subtext {
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Simple two-column layout for summary sections */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 22px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 840px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mini-card {
+      background: #f9fafb;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.95rem;
+    }
+
+    .mini-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    /* Grid cards for equipment */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e0e7ff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 16px 18px 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--primary);
+      font-size: 1.22rem;
+    }
+
+    .card small {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 19px;
+      font-size: 0.93rem;
+      color: #4b5563;
+    }
+
+    .card ul li + li {
+      margin-top: 2px;
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 20px;
+    }
+
+    /* Highlight / note blocks */
+    .note {
+      background: #e6f0ff;
+      padding: 18px 20px;
+      border-radius: 10px;
+      font-style: italic;
+      text-align: left;
+      margin-top: 18px;
+      border-left: 5px solid var(--primary);
+      color: #1f2937;
+    }
+
+    .note strong {
+      font-style: normal;
+      color: var(--primary);
+    }
+
+    /* Checklist table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.93rem;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border-soft);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #eef2ff;
+      color: #111827;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
+
 <body>
+  <div class="container">
 
-  <h1>🎨 Painting & Coating Application Tools</h1>
-  <p>Key tools and equipment used for airless, conventional and manual coating application.</p>
+    <!-- HEADER -->
+    <header>
+      <h1>Airless Spray Painting Equipment Expertise</h1>
+      <p>Selection, operation monitoring & technical inspection of heavy-duty airless spray systems
+        on industrial coating projects.</p>
+      <p class="tagline">
+        Prepared by <strong>Md Jakir Hossain – BGAS-CSWIP Painting Inspector Grade 2</strong>
+      </p>
+    </header>
 
-  <div class="tool-card">
-    <h2>Airless Spray Machine</h2>
-    <p>High-pressure airless spray unit for fast production and high-build coatings.</p>
+    <!-- PROFILE SNAPSHOT -->
+    <section class="section">
+      <h2>1. Professional Snapshot</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            As a BGAS-CSWIP certified Painting Inspector, I have direct experience in <strong>inspection,
+            supervision and troubleshooting</strong> of airless spray systems used for
+            structural steel, piping, storage tanks and industrial facilities.
+          </p>
+          <ul>
+            <li>Experience with <strong>single-component and multi-component (2K)</strong> coatings.</li>
+            <li>Systems operated up to <strong>70:1 ratio and 500+ bar</strong> working pressure.</li>
+            <li>Daily verification of <strong>pump pressure, spray pattern, tip size and filtration</strong>.</li>
+            <li>Coordination with <strong>coating manufacturer TDS / project specification</strong>.</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>Key Responsibilities</h3>
+          <ul>
+            <li>Pre-use inspection & functionality checks for pumps, guns and hoses.</li>
+            <li>Witnessing & recording <strong>pressure tests / leak tests</strong> on high-pressure lines.</li>
+            <li>Monitoring mixing, thinning and induction time as per datasheet.</li>
+            <li>Recording <strong>equipment parameters in daily inspection reports</strong>.</li>
+            <li>Raising NCR/observation for unsafe set-ups or non-compliant practices.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AIRLESS PUMPS -->
+    <section class="section">
+      <h2>2. Airless Spray Pumps & Machines</h2>
+      <p class="subtext">Hydraulic, pneumatic and petrol-driven pumps used for heavy-duty industrial spray work.</p>
+      <div class="grid">
+        <article class="card">
+          <img src="Images/graco-king.jpg" alt="Graco King and GH Series airless pumps" />
+          <div class="card-content">
+            <h3>Graco King & GH Series</h3>
+            <small>King 70:1 / 60:1 / 45:1 · GH 833 · GH 733 Big Rig · GMax 7900 &amp; 5900</small>
+            <ul>
+              <li>Hydraulic and air-operated pumps for high-build epoxy, polyurethane and high-solids coatings.</li>
+              <li>Witnessed setting of <strong>fluid pressure versus atomisation quality</strong> for different DFT requirements.</li>
+              <li>Daily checks on <strong>air motor lubrication, ice-free operation</strong> and relief valve condition.</li>
+              <li>Verification of correct <strong>fluid intake, suction strainers</strong> and return line arrangements.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+  <img src="Images/graco-electric.jpg" alt="Graco Electric Airless Sprayer" />
+  <div class="card-content">
+    <h3>Graco Electric Airless Spray Machines</h3>
+    <small>Ultra Max II · Ultra 495 PC Pro · 595 PC Pro · 695 / 795 / 1095 Hi-Boy</small>
     <ul>
-      <li>Hydraulic / electric airless pump</li>
-      <li>High-pressure spray hose & whip hose</li>
-      <li>Airless spray gun with tip guard</li>
-      <li>Various spray tips (fan & orifice sizes)</li>
+      <li>Ideal for medium to high production coating jobs using epoxy, PU and acrylic systems.</li>
+      <li>Inspection of <strong>motor load, pressure control accuracy</strong> and smooth pump stroke.</li>
+      <li>Verification of <strong>SmartControl system</strong> for stable spray pattern without pulsation.</li>
+      <li>Checking <strong>pump packings, rods, displacement pump lubrication</strong> and filter mesh alignment.</li>
+      <li>Ensuring correct <strong>hose length-to-pressure ratio</strong> for long-range applications.</li>
     </ul>
   </div>
+</article>
 
-  <div class="tool-card">
-    <h2>Conventional Spray Machine</h2>
-    <p>Air-assisted spray system for thinner coatings and fine finish works.</p>
-    <ul>
-      <li>Conventional spray gun (gravity / suction / pressure pot)</li>
-      <li>Air compressor with regulator & filter</li>
-      <li>Air hose & paint hose</li>
-    </ul>
+      <div class="note">
+        <strong>Inspector’s focus:</strong> verifying that the selected pump capacity, pressure ratio and hose length are
+        suitable for the coating viscosity, ambient conditions and required production rate, while staying within
+        manufacturer limits.
+      </div>
+    </section>
+
+    <!-- SPRAY GUNS -->
+    <section class="section">
+      <h2>3. Airless Spray Guns & Triggers</h2>
+      <p class="subtext">High-pressure guns used for fine atomisation, pattern control and safe operations.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="Images/spray-gun.jpg" alt="High pressure airless spray gun" />
+          <div class="card-content">
+            <h3>High-Pressure Guns (Up to 500+ bar)</h3>
+            <small>Graco XTR, Silver Plus, XHF · Wagner Vector Grip/Pro · Titan RX-Pro · Wiwa 500 / 700</small>
+            <ul>
+              <li>Inspection of <strong>trigger lock functionality</strong> before each shift.</li>
+              <li>Verification of correct <strong>gun filter mesh size</strong> based on tip size and coating type.</li>
+              <li>Monitoring for <strong>needle tip wear, internal leakage and packing gland leakage</strong>.</li>
+              <li>Ensuring <strong>gun handle grounding</strong> for static dissipation in flammable environments.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong>Common issues observed:</strong> blocked filters causing pulsation, damaged tip seals leading to tails,
+        and missing trigger locks creating serious safety hazards. These are highlighted during site toolbox talks.
+      </div>
+    </section>
+
+    <!-- TIPS & NOZZLES -->
+    <section class="section">
+      <h2>4. Spray Tips & Nozzles</h2>
+      <p class="subtext">Critical components controlling fan width, output and film build on each pass.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="Images/rac-x-tips.jpg" alt="Graco RAC X and other spray tips" />
+          <div class="card-content">
+            <h3>Airless Tips – Regular &amp; Fine Finish</h3>
+            <small>Graco RAC X (FFLP, LP, PAA) · Wagner TradeTip 3 · Titan TR1 / TR2</small>
+            <ul>
+              <li>Routine inspection of tip engraving (e.g. 417, 521, 643) to match design WFT & coverage.</li>
+              <li>Use of <strong>tip wear gauge</strong> to identify oversized or eroded tips causing over-consumption.</li>
+              <li>Checking tip guards, seals and correct orientation of the tip for spray / clean positions.</li>
+              <li>Verification that <strong>tip selection aligns with TDS recommended WFT / DFT</strong>.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HOSES & FITTINGS -->
+    <section class="section">
+      <h2>5. High-Pressure Hoses & Fittings</h2>
+      <p class="subtext">Safe transfer of high-pressure paint from pump to gun with minimum pressure loss.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="Images/hoses.jpg" alt="High pressure airless hoses and fittings" />
+          <div class="card-content">
+            <h3>Hoses, Whips & Connections</h3>
+            <small>1/4", 3/8", 1/2" main hose · 3/16" whip hose · rated 225–350 bar</small>
+            <ul>
+              <li>Visual inspection for cuts, kinks, blistering and damaged outer jackets before pressurising.</li>
+              <li>Checking correct <strong>pressure rating & manufacturing date</strong> printed on hose.</li>
+              <li>Verification of whip checks, safety clips and secure couplings at all critical joints.</li>
+              <li>Periodic witnessing of <strong>pressure tests</strong> following company procedures.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Inspector Focus</th>
+            <th>Risk if Not Controlled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Main high-pressure hose</td>
+            <td>Rating, condition, routing & protection from sharp edges</td>
+            <td>Hose burst, injection injury, sudden atomisation loss</td>
+          </tr>
+          <tr>
+            <td>Whip hose</td>
+            <td>Flexibility, no twisting, correct length near gun</td>
+            <td>Poor gun control, operator fatigue, pattern defects</td>
+          </tr>
+          <tr>
+            <td>Couplings & fittings</td>
+            <td>Tightness, safety clips & seals</td>
+            <td>Leakage, paint spray-outs, environmental contamination</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="section">
+      <h2>6. Filtration & Manifolds</h2>
+      <p class="subtext">Clean paint flow to prevent tip blockages, surface defects and downtime.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="Images/filters.jpg" alt="Pump inlet and gun filters for airless systems" />
+          <div class="card-content">
+            <h3>Multi-Stage Filtration System</h3>
+            <small>Pump inlet strainer · Manifold filter · Gun filter</small>
+            <ul>
+              <li>Pump inlet strainers 30–100 mesh used to stop large contaminants and skinning.</li>
+              <li>Manifold filters and gun filters 60–200 mesh selected based on coating and tip size.</li>
+              <li>Inspector verifies <strong>daily cleaning & re-assembly</strong> recorded in crew checklist.</li>
+              <li>Special attention given to zinc-rich primers & high-solids epoxies prone to settling.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ACCESSORIES -->
+    <section class="section">
+      <h2>7. Accessories & Supporting Equipment</h2>
+      <p class="subtext">Tools that improve access, safety and application consistency.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="Images/accessories.jpg" alt="Airless spray painting accessories" />
+          <div class="card-content">
+            <h3>Essential Airless Accessories</h3>
+            <ul>
+              <li>Tip guards, extension poles (up to 6 ft) for overhead and hard-to-reach areas.</li>
+              <li>Fluid & air pressure gauges (0–600 bar) for verifying operating range.</li>
+              <li>Throat Seal Liquid (TSL) levels monitored to protect pump packings.</li>
+              <li>Pneumatic agitators, drum strainers and mixing paddles for uniform coating consistency.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong>Value to the project:</strong> correct configuration of accessories allows safe access to complex
+        structures, reduces overspray, improves productivity and keeps the finished coating within specified DFT.
+      </div>
+    </section>
+
+    <!-- SAFETY & CHECKLIST -->
+    <section class="section">
+      <h2>8. Safety, QA/QC & Daily Inspection Checklist</h2>
+
+      <div class="two-col">
+        <div>
+          <p>
+            Every shift begins with a <strong>pre-start safety & equipment inspection</strong> witnessed or carried out by
+            the inspector. This ensures that the airless system is safe, compliant and ready for high-pressure operation.
+          </p>
+          <ul>
+            <li>Confirmation that all personnel wear appropriate PPE (gloves, goggles, coveralls, safety shoes).</li>
+            <li>Verification of <strong>respiratory protection</strong> when using solvent-based or isocyanate coatings.</li>
+            <li>Ensuring spray area has adequate <strong>ventilation and exclusion zones</strong>.</li>
+            <li>Checking that <strong>earthing / bonding</strong> is in place for equipment and drums.</li>
+          </ul>
+        </div>
+        <div class="mini-card">
+          <h3>Daily Checklist (Sample)</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pump, hoses & gun visual inspection</td>
+                <td>✔ Checked / defects recorded</td>
+              </tr>
+              <tr>
+                <td>Pressure test / leak check</td>
+                <td>✔ Satisfactory / NCR raised if not</td>
+              </tr>
+              <tr>
+                <td>Filters cleaned & reinstalled</td>
+                <td>✔ Logged in daily report</td>
+              </tr>
+              <tr>
+                <td>Tip size & WFT measurement vs TDS</td>
+                <td>✔ Verified on first panel / test area</td>
+              </tr>
+              <tr>
+                <td>Housekeeping & safe hose routing</td>
+                <td>✔ Area accepted for spraying</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Standards & Reference:</strong> Work activities are aligned with project specifications, BGAS-CSWIP
+        painting inspection practices, ISO/SSPC standards for surface preparation & coating application, and the
+        equipment manufacturers’ instructions (Graco, Wiwa, Wagner, Titan, etc.).
+      </div>
+    </section>
+
   </div>
 
-  <div class="tool-card">
-    <h2>Hand Tools for Application</h2>
-    <p>Used for touch-up, stripe coating and small areas.</p>
-    <ul>
-      <li>Brushes (various sizes & bristle types)</li>
-      <li>Rollers & roller frames</li>
-      <li>Extension poles</li>
-      <li>Scrapers, putty knife & mixing sticks</li>
-    </ul>
-  </div>
-
-  <div class="tool-card">
-    <h2>Mixing & Measuring</h2>
-    <p>Ensures correct mixing ratio and paint consistency.</p>
-    <ul>
-      <li>Mixing containers & calibrated ratio cups</li>
-      <li>Mechanical / pneumatic mixers</li>
-      <li>Viscosity cups (Ford / Zahn)</li>
-      <li>Digital scale (for 2K products)</li>
-    </ul>
-  </div>
-
-  <div class="tool-card">
-    <h2>Application QA Tools</h2>
-    <p>Basic tools to control film build & finish during application.</p>
-    <ul>
-      <li>Wet film thickness (WFT) gauge</li>
-      <li>Thermometer / IR thermometer</li>
-      <li>Stopwatch / timer for pot life & drying</li>
-    </ul>
-  </div>
-
-  <div class="tool-card">
-    <h2>Painting Area Preparation & Safety</h2>
-    <p>To protect surrounding areas and ensure safe operation.</p>
-    <ul>
-      <li>Masking tape, plastic sheet & paper</li>
-      <li>Paint strainers / filters</li>
-      <li>Painters PPE – coverall, gloves, goggles, respirator</li>
-      <li>Ventilation / exhaust fan for enclosed areas</li>
-    </ul>
-  </div>
-
+  <footer>
+    Prepared by: Md Jakir Hossain – BGAS-CSWIP Painting Inspector Grade 2 ·
+    Airless Spray Painting Equipment Expertise · Updated: December 2025
+  </footer>
 </body>
 </html>
