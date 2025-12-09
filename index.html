@@ -511,10 +511,6 @@
     border:1px solid rgba(0,255,213,0.4);
   }
 
-  /*  ============================
-      CERTIFICATIONS
-      ============================ */
-
     /* ============================
    CERTIFICATIONS
    ============================ */
@@ -530,7 +526,8 @@
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:16px;
+  gap:20px;
+  padding:18px;
 }
 
 /* Text area */
@@ -540,11 +537,71 @@
 
 /* Certificate image style */
 .cert-img img{
-  width:110px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.18);
+  width:240px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.25);
   object-fit:cover;
   box-shadow:0 10px 28px rgba(0,0,0,0.85);
+}
+
+    /* ======================
+   ACADEMIC QUALIFICATIONS
+   ====================== */
+
+#academic{
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,0.82),
+      rgba(0,10,25,0.88),
+      rgba(0,0,0,0.9)
+    ),
+    url('Images/backgrounds/academic.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-blend-mode:overlay;
+  border-radius:24px;
+  padding:40px 26px;
+  margin-top:32px;
+}
+
+/* same layout as certifications */
+#academic .cert-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:16px;
+  border-radius:14px;
+  background:rgba(4,18,35,0.96);
+  border:1px solid rgba(0,255,213,0.35);
+  box-shadow:0 16px 38px rgba(0,0,0,0.9);
+}
+
+/* text left */
+#academic .cert-info{
+  flex:1;
+}
+
+/* certificate image */
+#academic .cert-img img{
+  width:240px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.25);
+  object-fit:cover;
+  box-shadow:0 10px 28px rgba(0,0,0,0.85);
+}
+
+/* for small screens */
+@media(max-width:700px){
+  #academic .cert-item{
+    flex-direction:column;
+    text-align:center;
+  }
+  #academic .cert-img img{
+    width:200px;
+  }
 }
 
   /*  ============================
@@ -846,6 +903,60 @@
 
       </div>
     </section>
+
+    <!-- ACADEMIC QUALIFICATIONS -->
+<section id="academic">
+  <div class="section-title">Academic Qualifications</div>
+
+  <div class="cert-list">
+
+    <!-- B.Tech (Mechanical Engineering) -->
+    <div class="cert-item">
+      <div class="cert-info">
+        <strong>B.Tech in Mechanical Engineering</strong>
+        <div style="color:var(--text-muted); margin-top:6px;">
+          Mangalayatan University, Aligarh India — Enrolled July 2025 (Expected Graduation: 2028)
+        </div>
+        <div style="color:#38bdf8; margin-top:6px; font-weight:600;">
+          Status: In Progress
+        </div>
+      </div>
+
+      <div class="cert-img">
+        <img src="Images/academic/btech.jpg" alt="B.Tech Enrollment Proof">
+      </div>
+    </div>
+
+    <!-- Diploma -->
+    <div class="cert-item">
+      <div class="cert-info">
+        <strong>Diploma in Electrical Engineering</strong>
+        <div style="color:var(--text-muted); margin-top:6px;">
+          Rangpur Polytechnic Institute, Rangpur — 4 Years (2016–2020)
+        </div>
+      </div>
+
+      <div class="cert-img">
+        <img src="Images/academic/diploma.jpg" alt="Diploma Certificate">
+      </div>
+    </div>
+
+    <!-- SSC -->
+    <div class="cert-item">
+      <div class="cert-info">
+        <strong>Secondary School Certificate (SSC)</strong>
+        <div style="color:var(--text-muted); margin-top:6px;">
+          Gopalpur Technical College, Rangpur — 2016
+        </div>
+      </div>
+
+      <div class="cert-img">
+        <img src="Images/academic/ssc.jpg" alt="SSC Certificate">
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- PROJECTS -->
     <section id="projects">
@@ -1218,6 +1329,7 @@
   </script>
 </body>
 </html>
+
 
 
 
